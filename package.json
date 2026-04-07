@@ -11,4 +11,4 @@
     "socket.io": "^4.7.2",
     "@google/generative-ai": "^0.24.1"
   }
-}
+}   
