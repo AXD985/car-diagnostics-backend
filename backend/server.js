@@ -5,9 +5,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-let carData = { rpm: 0, speed: 0, temp: 0 }; // بيانات افتراضية
+let carData = { rpm: 0, speed: 0, temp: 0 }; 
 
-// هذا الجزء هو المسؤول عن إخفاء رسالة Cannot GET
+// هذا هو الجزء الذي يحل مشكلة Cannot GET /api/obd2
 app.get('/api/obd2', (req, res) => {
     res.json(carData);
 });
