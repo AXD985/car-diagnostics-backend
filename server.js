@@ -12,12 +12,17 @@ const io = socketIo(server, {
   cors: { origin: "*" }
 });
 
+// هذا السطر هو الذي سيجعل الرابط يعمل ويظهر البيانات
+app.get('/api/obd2', (req, res) => {
+    res.json(carData || { message: "Waiting for car data..." });
+});
 app.use(cors());
 app.use(express.json());
-
-// إعداد ذكاء Gemini باستخدام مفتاحك (انسخ المفتاح من الصورة وضعه هنا)
-const genAI = new GoogleGenerativeAI("ضغ_مفتاح_API_الخاص_بك_هنا");
+// استبدل السطر 20 بهذا السطر وضع مفتاحك بين العلامات
+const genAI = new GoogleGenerativeAI("AIzaSyCI5eWNP6Fcq6hmtAsuRxSmRMFoC8C9Gaw");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+// إعداد ذكاء Gemini باستخدام مفتاحك (انسخ المفتاح من الصورة وضعه هنا)  
+
 
 // 1. استقبال بيانات OBD2 من السيارة وبثها للعدادات
 app.post('/api/obd2', (req, res) => {
