@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+app.get('/api/obd2', (req, res) => { res.json(carData); });
 let carData = { rpm: 0, speed: 0, temp: 0 }; 
 
 app.get('/api/obd2', (req, res) => {
